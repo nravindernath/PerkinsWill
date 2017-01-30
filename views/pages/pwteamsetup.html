@@ -1,0 +1,69 @@
+                <div class="white-bg page-heading">
+                    <h2>{{message}}</h2>
+                    <ol class="breadcrumb">
+                        <li>
+                            <a href="#">Home</a> /
+                        </li>
+                        <li>
+                            <a href="#/pwteamsetup"><span class="act-bc">Perkins & Will User Setup</span></a>
+                        </li>
+                    </ol>
+                </div>
+                
+                <div class="rows" ng-controller="pwteamsetupcontroller">
+                	<section class="pwtset bor">
+                    <form name="pwteamform">
+								<h5>Add P + W Team Member</h5>
+								<div class="lab"><label>Name <span class="mandit">*</span></label></div>
+								<div class="fie"><input type="text" name="name" ng-model="name" required />
+									<span ng-show="pwteamform.name.$touched && pwteamform.name.$invalid"> Name is required.</span>
+								</div>
+								<div class="clearfix"></div>
+								<div class="lab"><label>Email Address <span class="mandit">*</span></label></div>
+								<div class="fie"><input type="email" name="email_address" ng-model="email_address" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" required />
+                                    <span ng-show="pwteamform.email_address.$touched && pwteamform.email_address.$invalid"> Email Id is required.</span>
+                                    <span style="color:Red" ng-show="pwteamform.email_address.$dirty && pwteamform.email_address.$error.pattern">Please Enter Valid Email</span>
+								</div>
+								<div class="clearfix"></div>
+								<div class="lab"><label>Title <span class="mandit">*</span></label></div>
+								<div class="fie"><input type="text" name="tile" ng-model="tile" required  />
+									<span ng-show="pwteamform.tile.$touched && pwteamform.tile.$invalid"> Title is required.</span>
+								</div>
+								<div class="clearfix"></div>
+								<div class="lab"><label>Phone Number</label></div>
+								<div class="fie">
+								<input type="text" name="phone_number" ng-model="phone_number" ng-keypress="onlyNumbers($event)"  />
+								
+								</div>
+								<div class="clearfix"></div>
+								<div class="lab"><label>Photograph</label></div>
+								
+								<div class="fie">
+									<input type="file" id="PhotographImage" >
+									<input type="button" value="Upload" class="def-btns"  ng-click="uploadFile(this, 'PhotographImage')" />
+								</div>
+						
+								<div class="clearfix"></div>
+								<div class="lab"><label>Groups <span class="mandit">*</span></label></div>
+								<div class="fie">
+									<select name="group" ng-model="group" required>
+										<option value="Owners">Owners</option>
+										<option value="Architects">Architects</option>
+										<option value="Contractors">Contractors</option>
+									</select>
+									<span ng-show="pwteamform.group.$touched && pwteamform.group.$invalid"> Select the Group.</span>
+								</div>
+								<div class="clearfix"></div>
+								<div class="lab">
+									<button class="def-btns"  ng-click="addpwtmember()">Save</button>
+									<!--<button class="def-btns"  ng-click="closeThisDialog()">Cancel</button>-->
+								</div>
+					</form>
+
+                    </section>
+                </div>
+				
+				
+
+
+					

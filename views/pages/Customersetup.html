@@ -1,0 +1,37 @@
+<div class="white-bg page-heading">
+    <h2>{{message}}</h2>
+    <ol class="breadcrumb">
+        <li><a href="">Home</a> /</li>
+        <li><a href="#"><span class="act-bc">Customer Setup</span></a></li>
+    </ol>
+</div>
+
+<div class="rows">
+
+ <form ng-controller="customersavecontroller" name="custsetform">
+ <div style="width:100%; float:left; clear:left;">
+	 <p ng-show="customerSaved && custsetform.customer_name.$dirty && custsetform.customer_name.$error.required" class="errormsg">Customer Name is Required.</p> 	
+     <p ng-show="customerSaved && custsetform.customer_id.$dirty && custsetform.customer_id.$error.required" class="errormsg">Customer Id Required.</p> 	
+     <div style="width:100%; float:left;" id="cusmsg" class="successmsg">&nbsp;</div>
+ </div>
+ 
+
+	<div class="cus-pan">
+
+            <label>Customer Name <span class="mandit">*</span></label>
+            <input type="text" name="customer_name" ng-change="customerSaved=false" ng-model="customer_name" required />
+
+            
+            
+            <label>Customer Id <span class="mandit">*</span> </label>
+            <input type="text" name="customer_id" ng-model="customer_id" ng-keypress="onlyNumbers($event)"  required />
+
+            <div class="rows nopadding">
+                <input type="button" class="def-btns" value="Save" ng-click="save()">
+                <input type="button"  class="def-btns" value="Cancel">
+            </div>
+        </div>
+        
+ </form>
+
+</div>

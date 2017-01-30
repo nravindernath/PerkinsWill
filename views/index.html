@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+
+<!-- define angular app -->
+  <html ng-app="pwbp">
+    <head>
+	  <!--Let browser know website is optimized for mobile-->
+	  <meta charset="utf-8">
+	  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	  
+	  <title>Perkins & Will</title>
+	
+      <!--Import Google Icon Font-->
+      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+      <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css" />
+	  <link href="css/font-awesome.css" rel="stylesheet" />
+	  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,400italic,300italic,600italic,700' rel='stylesheet' type='text/css' />
+
+      <!--Import min pwstyles.css-->
+      <link type="text/css" rel="stylesheet" href="https://pwwebcontent.azureedge.net/cdn/pw-styles.1.1.0.min.css" media="screen,projection" />
+	  
+	  <!-- css animation effects-->
+	  <link href="css/animate.css" rel="stylesheet">
+	  
+	  <!--custom styles pwstyles.css-->
+	  <link type="text/css" rel="stylesheet" href="css/pwstyles.css" media="screen,projection" />
+	  <link type="text/css" rel="stylesheet" href="css/ngDialog.css" media="screen,projection" />
+	  <link type="text/css" rel="stylesheet" href="css/ngDialog-theme-default.css" media="screen,projection" />
+      <link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
+	  <link rel="stylesheet" href="/resources/demos/style.css">
+	  
+	  
+	
+	  
+	  
+    </head>
+
+    <body ng-controller="mainController">
+		<header>
+			<div class="navbar-fixed">
+				<nav class="dark">
+				  <div class="nav-wrapper hor-space">
+					<a href="" class="brand-logo "><img src="images/logo.png" width="163" height="22" /></a>
+					<ul id="nav-mobile" class="right hide-on-med-and-down">
+					  <!--<li><a href="">Welcome Mr. Srini</a></li>-->
+					  <li><a href=""><i class="fa fa-envelope"></i></a></li>
+					  <li><a href=""><i class="fa fa-bell"></i></a></li>
+					  <li><a href="">Login</a></li>
+					</ul>
+				  </div>
+				</nav>
+			</div>
+			
+			<ul id="nav-mobile" class="side-nav fixed" style="width: 240px;">
+				<li class="ver-spacer"></li>
+				<li class="sky-color"><a href="#" class="waves-effect">CUSTOMER SETUP</a></li>
+				<li><a href="#/projectsetup" class="waves-effect waves-pw-blue">PROJECT SETUP</a></li>
+				<li><a href="#/pwteamsetup" class="waves-effect waves-pw-blue">PERKINS+WILL TEAM SETUP</a></li>
+                <li><a href="#/custeamsetup" class="waves-effect waves-pw-blue">CUSTOMER TEAM SETUP</a></li>
+				<li><a href="#/eprojectlist" class="waves-effect waves-pw-blue">PROJECT LIST</a></li>
+				<li><a href="#/ecustomerlist" class="waves-effect waves-pw-blue">CUSTOMER LIST</a></li>
+			</ul>			
+		</header>
+		
+		
+		<div ng-view class="bd-area"></div>
+
+		
+		 <!--Import jQuery before materialize.js-->
+         <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+         <script src="js/jquery-ui.js"></script>
+		<script type="text/javascript" src="https://pwwebcontent.azureedge.net/cdn/pw-javascript.js"></script>
+		 <script type="text/javascript" src="https://pwwebcontent.azureedge.net/cdn/materialize.min.js"></script>
+		 
+        	
+	  <!-- Angulr js -->
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.4/angular.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.4/angular-route.js"></script>
+		<script src="js/scripts.js" type="text/javascript"></script>
+		<script src="js/ngDialog.js" type="text/javascript"></script>
+
+		
+		<script>
+					
+        $(".side-nav li").click(function(){
+			
+            if($(".side-nav li").hasClass("sky-color")){
+                $(".side-nav li").removeClass("sky-color");
+                $(this).addClass("sky-color");
+            }
+            else{
+                ;
+            }
+        });
+		
+		
+        </script>
+        
+       
+		
+    </body>
+  </html>
+        

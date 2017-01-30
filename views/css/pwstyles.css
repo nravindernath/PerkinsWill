@@ -1,0 +1,93 @@
+*{ margin:0px; padding:0px;}
+body{font-family: 'Open Sans', sans-serif; margin:0px; padding:0px; background-color:#f8f8f8;}
+.hor-space{ padding:1px 20px;}
+h1, h2, h3, h4, h5, h6 {font-weight: 100; margin-top: 20px; margin-bottom: 10px;}
+a { cursor:pointer; text-decoration:none;}
+.nopadding{ padding:0px!important;}
+.margin{ padding:0px;}
+.clearfix{ clear:both!important;}
+
+
+.navbar-fixed{ position:absolute; left:0px; top:0px;}
+.dark{ background-color:#000;}
+nav ul li a { font-size:14px;}
+nav ul li a:hover, nav ul li.active{ background:transparent;}
+.side-nav{ top:64px;}
+.ver-spacer{ margin-top:150px;}
+.bd-area{width: 82%; position: relative; top: 64px; left: 240px;}
+.selected{ background-color:#00c1f3; color:#fff;}
+
+.breadcrumb:before{ margin:0px;}
+.breadcrumb {background-color: #ffffff; padding: 0; margin-bottom: 0;}
+.breadcrumb>li{display: inline-block; color:#ccc; font-size:12px; padding:0px;}
+.breadcrumb>li a {color: #ccc; font-size:12px;}
+.act-bc {color: #000!important; }
+
+.white-bg {background-color: #ffffff; border-bottom: 1px solid #f3f3f3!important; box-shadow:0px 0px 5px 2px #f0f0f0;  margin-top:30px;}
+.page-heading {border-top: 0; padding: 0px 20px 0px 10px; margin-bottom:30px;}
+.page-heading h2 { font-size:24px!important; color:#777; clear:right; padding:5px 0 5px 20px; }
+
+.rows{ width:100%; float:left; padding:	20px;}
+.cus-pan{ width:60%; float:left; padding:2% 5% 5% 5%; }
+.cus-pan label{ font-size:14px; color:#444!important; float:left; line-height:30px;}
+.cus-pan input[type="text"]{ width:500px; float:left; border-radius:4px; border:1px solid #ccc; line-height:30px; height:30px; margin-bottom:20px;}
+.mandit{ color:#FF0000; font-size:12px;}
+
+.def-btns{ padding:5px 20px!important; color:#444!important; font-size:14px!important; border-radius:4px; border:none;}
+.def-btns:hover,.def-btns:focus{background-color:#00c1f3; outline:none; color:#fff!important;}
+.bor{ border:1px solid #ccc;}
+
+
+.tab-sec{ width:100%; padding:10px; float:left;}
+.tab-btns{ width:20%; float:left;}
+.tab-btns ul li a{ width:100%; float:left; background-color:#00c1f3!important; color:#fff!important; margin-top:1px; text-align:center; line-height:40px; border-radius:10px 0px 0px 10px; border-left:1px solid #ccc; border-top:1px solid #ccc; border-bottom:1px solid #ccc; clear:left; display:block;}
+.tab-btns ul li a:hover{ background-color:#fff!important; color:#444!important; display:block;  border-radius:10px 0px 0px 10px; color:#fff;}
+.tab-btns ul li a:focus{background-color:#fff!important; color:#444!important; display:block; border-radius:10px 0px 0px 10px;}
+.tabactive{background-color:#fff!important; color:#444!important; display:block; border-radius:10px 0px 0px 10px;}
+
+.tab-contsec{ width:80%; float:left; background-color:#fff; border-radius:0px 10px 10px 0px; margin-top:1px; min-height:343px; border-top:1px solid #ccc; border-right:1px solid #ccc; border-bottom:1px solid #ccc;}
+.tab-contsec h4{ margin:0px; padding:20px 0px; color:#444; width:100%; float:left; border-bottom:1px solid #ccc;}
+.tab-contsec p{ width:100%; float:left; font-size:14px; line-height:24px;}
+.tab-contsec select{ border:1px solid #aaa!important;}
+.pad20{ padding:20px;}
+.lab{ width:20%; float:left; margin-top:10px; line-height:27px;}
+.lab label{ font-size:14px;}
+.fie{ width:70%; float:left; margin:10px;}
+.fie span{ font-size:12px; color:#F00; padding-left:5px;}
+.fie select{ width:70%; float:left; display:block; border-radius:5px;  height:35px!important; outline:none; font-size:14px;}
+.fie input[type="text"]{ width:70%; float:left; display:block; border-radius:5px;  height:27px!important; outline:none; margin-bottom:0px; border:1px solid #ccc; background-color:#f9f9f9;}
+.fie input[type="email"]{ width:70%; float:left; display:block; border-radius:5px;  height:27px!important; outline:none; margin-bottom:0px; border:1px solid #ccc; background-color:#f9f9f9;}
+.fie input[type="file"]{ width:56%; margin-right:5px; float:left; display:block; border-radius:5px; padding-left:1%; padding-top:1px;  height:29px!important; outline:none; margin-bottom:0px; border:1px solid #ccc; background-color:#f9f9f9;}
+.fie textarea{ width:70%; float:left; display:block; border-radius:5px;  height:75px!important; outline:none; margin-bottom:0px; border:1px solid #ccc; background-color:#f9f9f9;}
+.col50{ width:48%; float:left; margin:0% 0.5% 10px 0.5%; padding:0px;}
+.col50 h5{color:#444; width:90%; margin:0px;}
+.bor-box{ border:1px solid #f0f0f0!important; float:left; width:100%; min-height:200px; margin-top:15px;}
+.bor-box td{ border-bottom:1px solid #f6f6f6; line-height:30px;}
+.col50 ul { margin-top:20px; min-height:200px; border:1px solid #ccc;}
+.col50 ul li{ font-size:14px; line-height:30px; padding:0 10px;}
+.col50 ul li span{ float:right;}
+.col50 table { width:100%;}
+.col50 table td{ font-size:14px; padding:0 10px;}
+.col50 table td span{ float:right;}
+.nottable{ width:100%; float:left; height:146px; overflow-y:scroll; clear:left; font-size:13px;}
+.nottable th{ background-color:#f1f1f1; color:#000; padding:0px; line-height:30px; border:1px solid #f3f3f3;  text-align:center;}
+.nottable td{ width:33.3%; border:1px solid #f1f1f1; padding:0px; line-height:30px; text-align:center;}
+.nottable td.odd{ background-color:#ccc; padding:0px; line-height:30px}
+.rbtn{ width:30%; float:left; padding-left:3.3%;}
+.rbtn input[type="radio"]{ float:left!important; position:relative!important; left:0!important; top:6px!important; visibility:visible; margin-right:10px;}
+.btn-addcus{ margin-top:60px; float:left;}
+.tab-btns ul li.active a{ background-color:#fff!important; color:#444!important; display:block; border-radius:10px 0px 0px 10px;}
+ul.side-nav.fixed li:hover, ul.side-nav.fixed li.active {background-color: #00c1f3!important;}
+.sky-color{background-color: #00c1f3 !important;}
+.sky-color a{color:#fff !important;}
+.side-nav li:first-child{pointer-events: none;}
+.adduserselect:hover,.adduserselect:visited,.adduserselect:active, .adduserselect:focus{ background-color:#00c1f3; color:#fff;}
+.cus-pan p{ width:100%; float:left; margin:0px!important;}
+
+.errormsg{ color:#F00; line-height:30px; font-size:13px!important; padding-left:5%!important;}
+.successmsg{ color:#00c1f3; font-weight:bold; font-size:15px; padding-left:5%;}
+
+input.ng-invalid {background-color: #f8f8f8;}
+input.ng-valid {background-color: #f8f8f8;}
+.pwtset, .cusset{ background-color:#fff; padding:1% 2% 3% 2%; float:left; width:100%;}
+

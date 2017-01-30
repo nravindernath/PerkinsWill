@@ -1,0 +1,447 @@
+
+<div class="white-bg page-heading">
+  <h2>{{message}}</h2>
+    <ol class="breadcrumb">
+        <li><a href="#">Home</a> /</li>
+        <li class="active"><a href="#/projectsetup"><span class="act-bc">Project Setup</span></a></li>
+    </ol>
+</div>
+				
+				
+<div class="rows" >
+	<section ng-app="myApp" ng-controller="mainController as tab" class=" bor tab-sec">
+		<div class="tab-btns">
+			<ul>
+				<li ng-class="{active:tab.isSet(1)}" ><a href ng-click="tab.setTab(1)">Customer Details</a></li>
+				<li ng-class="{active:tab.isSet(2)}"><a href ng-click="tab.setTab(2)">Project Details</a></li>
+				<li ng-class="{active:tab.isSet(3)}"><a href ng-click="tab.setTab(3)">P + W Team</a></li>
+				<li ng-class="{active:tab.isSet(4)}"><a href ng-click="tab.setTab(4)">Customer Team</a></li>
+				<li ng-class="{active:tab.isSet(5)}"><a href ng-click="tab.setTab(5)">Project Notifications</a></li>
+				<li ng-class="{active:tab.isSet(6)}"><a href ng-click="tab.setTab(6)">Project Status</a></li>
+				<!--<li ng-class="{active:tab.isSet(7)}"><a href ng-click="tab.setTab(7)">Goals Status</a></li>-->
+				<li ng-class="{active:tab.isSet(8)}"><a href ng-click="tab.setTab(8)">Finalize Setup</a></li>
+			</ul>
+		</div>
+		
+		<div class="tab-contsec">
+
+		<!-- Customer Details Tab starts Here -->
+			
+				<div ng-show="tab.isSet(1)" class="pad20">
+					<h4 class="tada">Customer Details</h4>
+					<form name="cuslistform" ng-controller="customerlistcontroller">
+                        <div class="lab"><label>Customer Name <span class="mandit">*</span></label></div>
+                            <div class="fie"> 
+							<select name="selectedCustomer" ng-model="selectedCustomer" ng-options="x.customer_name for x in cuslist"  ng-change="changeevt(selectedCustomer)" required>
+                            <option>-- Select Customer name --</option>
+                             </select>
+							<span ng-show="cuslistform.selectedCustomer.$touched && cuslistform.selectedCustomer.$invalid"> Select Customer Name</span>
+                                                       
+                           <!-- <select ng-model="selectedCustomer"  name="selectedCustomer" ng-change="changeevt()">
+                                <option ng-repeat="x in cuslist" value="{{x.customer_id}}">{{x.customer_name}}</option>
+                                
+                            </select>-->
+                            </div>
+                        <div class="clearfix"></div>
+                        <h3>{{selectedCustomer.customer_name}}</h3>
+                        <p>{{selectedCustomer.customer_id}}</p>
+                        
+                        <div class="btn-addcus"><input type="button" value="Add New Customer" class="def-btns" onClick="window.location.href='#'" /></div>
+                        
+                    </form>
+				</div>
+		
+		
+		<!-- Project Details  NEW Tab starts Here -->
+		
+				<div ng-show="tab.isSet(2)"class="pad20">
+                	<form name="projdetform">
+					<div class="lab"><label>Project Name <span class="mandit">*</span></label></div>
+					<div class="fie"> 
+						<select ng-model="selectedproject" ng-options="project.project_name for project in projectList"  ng-change="changeProjectevt(selectedproject)" >
+                            <option>-- Select Project Name --</option>                            
+                        </select>&nbsp;&nbsp;
+
+						<input type="button" value="Add New Project" class="def-btns" ng-click="clearprojectdetails()"/>
+                    </div>
+					
+					<h4>Project Details</h4>
+					
+                        <div class="lab"><label>Project Name <span class="mandit">*</span></label></div>
+                        <div class="fie">
+                        	<input type="text" name="project_name" ng-model="project_name" required />
+                        	<span ng-show="projdetform.project_name.$touched && projdetform.project_name.$invalid"> Project Name is Required</span>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="lab"><label>Project Number <span class="mandit">*</span></label></div>
+                        <div class="fie">
+                            <input type="text" name="project_id" ng-model="project_id"	required  />
+                            <span ng-show="projdetform.project_id.$touched && projdetform.project_id.$invalid"> Project Id is Required</span>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="lab"><label>Project Location <span class="mandit">*</span></label></div>
+                        <div class="fie">
+                            <input type="text" name="project_location" ng-model="project_location" required />
+                            <span ng-show="projdetform.project_location.$touched && projdetform.project_location.$invalid"> Project Location is Required</span>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="lab"><label>Hero Image <span class="mandit">*</span></label></div>
+                        <div class="fie">
+                            <input type="file" id="projectimage" >
+                            <input type="button" value="Upload" class="def-btns"  ng-click="uploadFile(this, 'projectimage')" />
+                          
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="lab"><label>Project Description <span class="mandit">*</span></label></div>
+                        <div class="fie">
+                            <textarea  rows="4" cols="30" name="project_description" ng-model="project_description" required ></textarea>
+                            <span ng-show="projdetform.project_description.$touched && projdetform.project_description.$invalid"> Required Project Description</span>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="lab"><label>Schedule Document <span class="mandit">*</span></label></div>
+                        <div class="fie">
+                            <input type="file" id="ScheduleFile"required >
+                            <input type="button" value="Upload" class="def-btns"  ng-click="uploadFile(this, 'ScheduleFile')" />
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="lab"><label>Budget Document <span class="mandit">*</span></label></div>
+                        <div class="fie">
+                            <input type="file" id="BudgetFile" required >
+                            <input type="button" value="Upload" class="def-btns"  ng-click="uploadFile(this, 'BudgetFile')" />
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="lab"><label>Goals Document <span class="mandit">*</span></label></div>
+                        <div class="fie">
+                            <input type="file" id="GoalsFile" required >
+                            <input type="button" value="Upload" class="def-btns"  ng-click="uploadFile(this, 'GoalsFile')" />
+                        </div>
+                        <div class="clearfix"></div>
+					</form>
+				</div>
+		
+		<!-- P + W Team Tab starts Here -->
+		
+				<div ng-show="tab.isSet(3)" class="pad20">
+					<h4>P + W Team</h4>
+					
+					<div class="rows">
+						<div class="col50 lft1">
+							<h5>Asigned Team</h5>
+                            <div class="bor-box">
+                                <table id="id_addedTeamMembers">
+                                    <tr ng-repeat="teammember in added_teammembers" class="adduserselect"  ng-class="{'selected':$index == selectrowremove}" ng-click="setClickedRowremove($index)" >
+                                        <td align="left" valign="top">{{teammember.name}} <span>{{teammember.group}}</span></td>
+                                    </tr>
+                                </table>
+                            </div>
+						</div>
+					
+						<div class="col50 rgt1">
+							<h5>Available Team</h5>
+                            <div class="bor-box">
+                            <section ng-controller="availpwtcontroller">
+                              <table id="id_availableTeamMembers">
+                                    <tr ng-repeat="p in pwtmember" ng-class="{'selected':$index == selectrowadd}" ng-click="setClickedRowadd($index)" class="adduserselect">
+                                        <td align="left" valign="top">{{p.name}}<span>{{p.group}}</span></td>
+                                    </tr>
+                                </table>
+                             </section>
+                             </div>
+						</div>
+					
+					</div>
+					
+					<div class="rows nopadding">
+						<div class="col50"><input type="button" value="Remove" class="def-btns" ng-click="removepwteamMember()" /></div>
+						<div class="col50"><input type="button" value="Add" class="def-btns"  ng-click="addpwteamMember()" /> <!--<input type="button" value="New User" class="def-btns"   ng-click="openDefault()" />--></div>
+
+					</div>
+
+				</div>
+				
+		
+		<!-- Customer Team Tab Starts Here -->
+		
+				<div ng-show="tab.isSet(4)" class="pad20">
+					<h4>Customer Team</h4>
+					<div class="rows">
+						<div class="col50 lft1">
+							<h5>Asigned Team</h5>
+                            <div class="bor-box">
+                                <table id="id_addedCusTeamMembers">
+                                    <tr ng-repeat="cus_teammember in added_cuss_teammembers" class="adduserselect"   ng-class="{'selected':$index == selectrowremove}" ng-click="setClickedRowremove($index)" >
+                                        <td align="left" valign="top">{{cus_teammember.name}} <span>{{cus_teammember.role}}</span></td>
+                                    </tr>
+                                </table>
+                            </div>
+						</div>
+					
+						<div class="col50 rgt1">
+							<h5>Available Team</h5>
+                            
+                            <div class="bor-box">
+                           
+                            	<table id="id_availablecusTeamMembers">
+                            	<tr ng-repeat="p in addcusmember" class="adduserselect"  ng-class="{'selected':$index == selectrowadd}" ng-click="setClickedRowadd($index)">
+                                	<td align="left" valign="top">{{p.name}}<span>{{p.role}}</span></td>
+                                </tr>
+                             </table>
+                            
+                            </div>
+                            
+                            
+                             
+						</div>
+					
+					</div>
+					
+					<div class="rows nopadding">
+						<div class="col50"><input type="button" value="Remove" class="def-btns" ng-click="removecusteamMember()" /></div>
+						<div class="col50"><input type="button" value="Add" class="def-btns" ng-click="addcusteamMember()" /> <!--<input type="button" value="New User" class="def-btns"   ng-click="openDefault1()" />--></div>
+					</div>
+
+				</div>
+		
+		<!-- Project Notification tab starts here-->
+		
+				<div ng-show="tab.isSet(5)" class="pad20">
+					<h5>Project Notifications</h5>
+                    <form name="projnotifyform">
+					<div class="lab"><label>Headline <span class="mandit">*</span></label></div>
+					<div class="fie">
+                        <input type="text" name="headlines" ng-model="headlines" required />
+                        <span ng-show="projnotifyform.headlines.$touched && projnotifyform.headlines.$invalid"> Headline is required.</span>
+                    </div>
+					<div class="clearfix"></div>
+					<div class="lab"><label>Date <span class="mandit">*</span></label></div>
+					<div class="fie">
+                        <input type="text" class="datepicker"  ng-model="date" name="date" required />
+                        <span ng-show="projnotifyform.date.$touched && projnotifyform.date.$invalid"> Select the Date.</span>
+                    </div>
+					<div class="clearfix"></div>
+					<div class="lab"><label>Link <span class="mandit">*</span></label></div>
+					
+					<div class="fie">
+						<input type="file" id="linkFile" >
+						<input type="button" value="Upload" class="def-btns"  ng-click="uploadFile(this, 'linkFile')" />
+					</div>
+					
+					<div class="clearfix"></div>
+					<div class="lab"><label>Text</label></div>
+					<div class="fie"><input type="text" name="text" ng-model="text" /></div>
+					<div class="clearfix"></div>
+					<div class="lab"><label>Activity Type<span class="mandit">*</span></label></div>
+					<div class="fie">
+						<select name="icon_type" ng-model="icon_type" required>
+							<option value="New Images Posted">New Images Posted</option>
+							<option value="Invoice Received">Invoice Received</option>
+                            <option value="New Survey Available">New Survey Available</option>
+						</select>
+                        <span ng-show="projnotifyform.icon_type.$touched && projnotifyform.icon_type.$invalid"> Select Activity Type.</span>
+					</div>
+					<div class="clearfix"></div>
+					<div class="lab">
+						<button class="def-btns" ng-click="addnotify()" id="dynbtn">Add</button>
+					</div>
+					
+					<div class="clearfix"></div>
+					
+					<h5>Current Notifications</h5>
+					
+					<div class="row pad20 nottable">
+						<table border="1" style="border-collapse:collapse; border:1px solid #ccc;">
+							<tr>
+								<th align="center" valign="middle">Headline</th>
+								<th align="center" valign="middle">Date</th>
+								<th align="center" valign="middle">Link</th>
+							</tr>
+							
+							<tr ng-repeat="notify in notifydata" ng-class="{'selected':$index == selectrow}" ng-click="setClickedRow($index)">
+								<td align="left" valign="middle">{{notify.headlines}}</td>
+								<td align="left" valign="middle">{{notify.date}}</td>
+								<td align="left" valign="middle">{{notify.link}}</td>
+							</tr>
+                            
+						</table>
+					</div>
+					<div class="rows">
+							<button class="def-btns" ng-click="nfyeditData()" >Edit</button>
+							<button class="def-btns" ng-click="removenotifyData()">Remove</button>				
+					</div>
+                    </form>
+				</div>
+		
+        
+        
+        
+        
+		
+		<!-- project Status -->
+		
+				<div ng-show="tab.isSet(6)" class="pad20">
+					<h5>Overall Project Status</h5>
+					<form name="prostaform">
+					<div class="row">
+                    	
+						<div class="rbtn"><input type="radio" name="overall_status" ng-model="overall_status" value="Not Started">Not Started</div>
+						<div class="rbtn"><input type="radio" name="overall_status" ng-model="overall_status" value="On Track">On Track</div>
+						<div class="rbtn"><input type="radio" name="overall_status" ng-model="overall_status" value="Slipping">Slipping</div>
+					</div>
+					<hr />
+					
+					<div class="lab"><label>Phase Name <span class="mandit">*</span></label></div>
+					<div class="fie">
+                    <input type="text" name="phase_name" ng-model="phase_name" required />
+                    <span ng-show="prostaform.phase_name.$touched && prostaform.phase_name.$invalid"> Phase Name is required.</span>
+                    </div>
+					<div class="clearfix"></div>
+					<div class="lab"><label>Phase Order <span class="mandit">*</span></label></div>
+					<div class="fie">
+						<select  name="phase_order" ng-model="phase_order" required >
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+						</select>
+                        <span ng-show="prostaform.phase_order.$touched && prostaform.phase_order.$invalid"> Phase Order is required.</span>
+					</div>
+					<div class="clearfix"></div>
+					<div class="lab"><label>Completion Date<span class="mandit">*</span></label></div>
+					<div class="fie">
+                        <input type="text"  class="datepicker" name="completion_date" ng-model="completion_date" required />
+                        <span ng-show="prostaform.completion_date.$touched && prostaform.completion_date.$invalid"> Completion Date is required.</span>
+                    </div>
+					<div class="clearfix"></div>
+					<div class="lab"><label>Phase Status</label></div>
+					<div class="fie">
+						<select  name="phase_status" ng-model="phase_status">
+							<option value="In Complete">Incomplete</option>
+							<option value="Complete">Complete</option>
+						</select>
+					</div>
+					<div class="clearfix"></div>
+					<div class="lab">
+						<button class="def-btns" ng-click="addprojdata()"  id="projstssbtn">Add</button>
+					</div>
+					
+					<div class="clearfix"></div>
+					<h5>Project Phases</h5>
+					<div class="row pad20 nottable">
+						<table border="1" style="border-collapse:collapse; border:1px solid #ccc;">
+							<tr>
+								<th align="center" valign="middle">Phase Name</th>
+								<th align="center" valign="middle">Date</th>
+								<th align="center" valign="middle">Status</th>
+							</tr>
+							
+							<tr ng-repeat="prostatus in prostatdata" ng-class="{'selected':$index == selectrow}" ng-click="setClickedRow($index)">
+								<td align="left" valign="middle">{{prostatus.phase_name}}</td>
+								<td align="left" valign="middle">{{prostatus.completion_date}}</td>
+								<td align="left" valign="middle">{{prostatus.phase_status}}</td>
+							</tr>
+							
+						</table>
+					</div>
+					<div class="rows">
+							<button class="def-btns" ng-click="editData()" >Edit</button>
+							<button class="def-btns" ng-click="removeStatusData()">Remove</button>				
+					</div>
+                    </form>
+				</div>
+				
+				
+                
+                
+                
+                
+                
+		
+		<!-- Goals Status Tab Starts Here -->
+		
+				<!--<div ng-show="tab.isSet(7)" class="pad20">
+                	<form name="goalstaform">
+                        <h4>Goals Status</h4>
+                        
+                        <div class="lab"><label>Goal Name <span class="mandit">*</span></label></div>
+                        <div class="fie">
+                            <input type="text"  name="goal_name" ng-model="goal_name" required />
+                            <span ng-show="goalstaform.goal_name.$touched && goalstaform.goal_name.$invalid"> Goal Name is required.</span>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="lab"><label>Date <span class="mandit">*</span></label></div>
+                        <div class="fie">
+                            <input type="text"  name="date" ng-model="date" required />
+                            <span ng-show="goalstaform.date.$touched && goalstaform.date.$invalid"> Date is required.</span>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="lab"><label>Text <span class="mandit">*</span></label></div>
+                        <div class="fie">
+                            <textarea col="5" rows="3"  name="text" ng-model="text" required></textarea>
+                            <span ng-show="goalstaform.text.$touched && goalstaform.text.$invalid">Text is required.</span>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="lab"><label>Icon Type</label></div>
+                        <div class="fie">
+                            <select  name="icon_type" ng-model="icon_type">
+                                <option value="Exclamation Point">Exclamation Point</option>
+                                <option value="Checkmark">Checkmark</option>
+                            </select>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="lab">
+                            <button class="def-btns" ng-click="goalsstatus()" id="gs-add-btn">Add</button>
+                        </div>
+                        
+                        <div class="clearfix"></div>
+                        
+                        <h5>Current Goals</h5>
+                        <div class="row pad20 nottable">
+                            <table border="1" style="border-collapse:collapse; border:1px solid #ccc;">
+                                <tr>
+                                    <th align="center" valign="middle">Goal Name</th>
+                                    <th align="center" valign="middle">Date</th>
+                                </tr>
+                                
+                                <tr  ng-repeat="goalstate in goalsstatusdata"  ng-class="{'selected':$index == selectrow}" ng-click="setClickedRow($index)">
+                                    <td align="left" valign="middle">{{goalstate.goal_name}}</td>
+                                    <td align="left" valign="middle">{{goalstate.date}}</td>
+                                </tr>
+                                
+                                
+                                
+                                
+                                
+                            </table>
+                        </div>
+                        <div class="rows">
+                                <button class="def-btns" ng-click="goaleditData()" >Edit</button>
+                                <button class="def-btns" ng-click="removegoalData()">Remove</button>					
+                        </div>
+                    </form>					
+				</div>-->
+                
+                
+				
+	<!-- Finalize setup tab starts here -->			
+		
+				<div ng-show="tab.isSet(8)" class="pad20">
+					<h4>Project Details Quick Overview</h4>
+					<p class="pad20">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet laoreet mi, quis dapibus dolor. Donec volutpat in augue quis vestibulum. Maecenas ipsum urna, tincidunt sed commodo ut, eleifend a sapien. Phasellus ullamcorper, arcu sit amet suscipit iaculis, quam risus feugiat nisi, vel dapibus eros arcu at nisl.</p>
+					<p class="pad20"><button class="def-btns" ng-click="finalizeprojectsetup()">Finalize Setup</button></p>
+					<h4>Invite Client to Project</h4>
+					<p class="pad20">Sed sit amet laoreet mi, quis dapibus dolor. Donec volutpat in augue quis vestibulum. Maecenas ipsum urna, tincidunt sed commodo ut, eleifend a sapien. Phasellus ullamcorper, arcu sit amet suscipit iaculis, quam risus feugiat nisi, vel dapibus eros arcu at nisl.</p>
+					<p class="pad20"><button class="def-btns">Set Invite Emails</button></p>
+				</div>
+			</div>	
+	<div class="rows">
+		<button ng-model="saveallButton" id="saveallButton" ng-click="saveall()" class="def-btns">Save</button>
+		<button class="def-btns">Cancel</button>				
+	</div>		
+			
+			
+			
+	</section>
+	
+	
+	
+</div>
